@@ -43,8 +43,8 @@
 <body unresolved>
 	<template is="dom-bind">
 		<client-map latitude="{{latitude}}" longitude="{{longitude}}"></client-map>
-		<google-map latitude="{{latitude}}" longitude="{{longitude}}" zoom="15">
-			<google-map-marker latitude="{{latitude}}" longitude="{{longitude}}"></google-map-marker>
+		<google-map latitude="[[latitude]]" longitude="[[longitude]]" zoom="15">
+			<google-map-marker latitude="[[latitude]]" longitude="[[longitude]]"></google-map-marker>
 		</google-map>
 	</template>
 </body>
