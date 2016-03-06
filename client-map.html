@@ -24,7 +24,7 @@
 			<input type="hidden" name="longitude" value="{{longitude}}"></input>
 		</form>
 
-		<paper-button raised on-click="this.$.form.submit()">Enviar</paper-button>
+		<paper-button raised on-click="enviar">Enviar</paper-button>
 	</template>
 	<script>
 		Polymer({
@@ -50,6 +50,9 @@
 				} else {
 				    alert('Geolocation is not supported by this browser.');
 				}
+			},
+			enviar: function () {
+				this.$.form.submit();
 			}
 		});
 	</script>
