@@ -1,0 +1,56 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="client-map">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+
+			paper-button {
+				background: #f44336;
+  				color: #fafafa;
+  				font-weight: bold;
+  				position: fixed;
+  				bottom: 15%;
+  				left: 50%;
+  				margin-left: -51.5px;
+  				z-index: 1;
+			}
+		</style>
+
+		<form is="iron-form" id="form" method="post" action="https://wheresmyemployee.herokuapp.com/coordenadas">
+			<input type="hidden" name="latitude" value="{{latitude}}"></input>
+			<input type="hidden" name="longitude" value="{{longitude}}"></input>
+		</form>
+
+		<paper-button raised on-click="this.$.form.submit()">Enviar</paper-button>
+	</template>
+	<script>
+		Polymer({
+			is: 'client-map',
+			properties: {
+				latitude: {
+					type: Number,
+					notify: true
+				},
+				longitude: {
+					type: Number,
+					notify: true
+				}
+			},
+			ready: function () {
+				if (navigator.geolocation) {
+				    navigator.geolocation.getCurrentPosition(
+				    	function (position) {
+				    		document.querySelector('client-map').latitude = position.coords.latitude;
+				    		document.querySelector('client-map').longitude = position.coords.longitude;
+				    	}
+				    );
+				} else {
+				    alert('Geolocation is not supported by this browser.');
+				}
+			}
+		});
+	</script>
+</dom-module>

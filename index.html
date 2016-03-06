@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Employee</title>
+	<meta name="description" content="Employee Client">
+
+	<!-- Mobile -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+	<!-- Chrome / Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="black">
+	<link rel="icon" href="icon.png">
+
+	<!-- Safari / iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+	<!-- Web Components -->
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+	<!-- Import Elements -->
+	<link rel="import" href="bower_components/google-map/google-map.html">
+	<link rel="import" href="bower_components/iron-form/iron-form.html">
+	<link rel="import" href="bower_components/paper-button/paper-button.html">
+
+	<!-- My Elements -->
+	<link rel="import" href="client-map.html">
+
+	<style>
+		body, html {
+		  font-family: 'Roboto', Arial, sans-serif;
+		  height: 100%;
+		  margin: 0;
+		  overflow: hidden;
+		}
+	</style>
+
+</head>
+<body unresolved>
+	<template is="dom-bind">
+		<client-map latitude="{{latitude}}" longitude="{{longitude}}"></client-map>
+		<google-map latitude="{{latitude}}" longitude="{{longitude}}" zoom="15">
+			<google-map-marker latitude="{{latitude}}" longitude="{{longitude}}"></google-map-marker>
+		</google-map>
+	</template>
+</body>
+</html>
